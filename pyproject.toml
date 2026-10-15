@@ -1,0 +1,23 @@
+[project]
+name = "connect-telegram"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "shokhjahon0126", email = "mardonovshohjahon2006@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "telethon>=1.37.0",
+    "python-dotenv>=1.0.1",
+    "apscheduler>=3.10.4",
+    "aiosqlite>=0.20.0",
+    "pytz>=2024.1",
+]
+
+[project.scripts]
+connect-telegram = "connect_telegram.main:main"
+
+[build-system]
+requires = ["uv_build>=0.12.22,<0.13.0"]
+build-backend = "uv_build"
