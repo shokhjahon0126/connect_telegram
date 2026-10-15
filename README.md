@@ -40,12 +40,14 @@ Telethon va Python 3.12 yordamida yaratilgan, shaxsiy Telegram akkauntingizni pr
 ## 🚀 O'rnatish va Ishga Tushirish
 
 ### 1. Talablar
-- Python 3.12+
-- [uv](https://github.com/astral-sh/uv) paket menejeri (tavsiya etiladi)
+- Python 3.10+
+- pip va venv
 
 ### 2. Bog'liqliklarni o'rnatish
 ```bash
-uv sync
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ### 3. Telegram API ma'lumotlarini olish
@@ -70,11 +72,12 @@ TIMEZONE=Asia/Tashkent
 
 ### 5. Dasturni ishga tushirish
 ```bash
-uv run connect-telegram
+python3 main.py
 ```
-
-> [!NOTE]
-> **Birinchi marta kirish:** Dastur terminalda sizdan telefon raqamingizni (masalan, `+998901234567`) va Telegram orqali kelgan tasdiqlash kodini kiritishingizni so'raydi. Agar ikki bosqichli parol (2FA) yoqilgan bo'lsa, parolingizni ham so'raydi. Shundan so'ng login ma'lumotlari `data/user_session.session` faylida xavfsiz saqlanadi va keyingi safar kod so'ramaydi.
+Yoki Telegram orqali QR-kod bilan tezkor kirish:
+```bash
+python3 login_qr.py
+```
 
 ---
 
@@ -82,28 +85,24 @@ uv run connect-telegram
 
 ```
 connect_telegram/
-├── src/
-│   └── connect_telegram/
-│       ├── __init__.py          # Paket eksporti
-│       ├── main.py              # Dastur entrypoint va lifecycle boshqaruvi
-│       ├── config.py            # .env yuklovchi va tekshiruvchi modul
-│       ├── client.py            # Telethon TelegramClient yaratish
-│       ├── database.py          # SQLite ma'lumotlar bazasi (aiosqlite)
-│       ├── templates.py         # O'zbekcha chiroyli xabar shablonlari
-│       ├── handlers/
-│       │   ├── __init__.py
-│       │   ├── auto_reply.py    # Kiruvchi xabarlar uchun avto-javob
-│       │   ├── call_handler.py  # VoIP qo'ng'iroqlarni tutuvchi handler
-│       │   └── commands.py      # Shaxsiy boshqaruv komandalari
-│       └── scheduler/
-│           ├── __init__.py
-│           └── birthday.py      # APScheduler orqali tug'ilgan kun tabriklari
-├── .agents/
-│   └── plan.md                  # Loyihaning to'liq texnik rejasi
-├── data/                        # Baza va sessiya fayllari (gitignore'da)
-├── .env.example                 # Sozlamalar namunasi
-├── .gitignore                   # Xavfsizlik uchun maxfiy fayllarni cheklash
-└── pyproject.toml               # Loyiha metadata va dependensiyalari
+├── main.py              # Dastur entrypoint va lifecycle boshqaruvi
+├── config.py            # .env yuklovchi va tekshiruvchi modul
+├── client.py            # Telethon TelegramClient yaratish
+├── database.py          # SQLite ma'lumotlar bazasi (aiosqlite)
+├── templates.py         # O'zbekcha chiroyli xabar shablonlari
+├── login_qr.py          # Telegramga QR-kod orqali tezkor kirish
+├── handlers/
+│   ├── __init__.py
+│   ├── auto_reply.py    # Kiruvchi xabarlar uchun avto-javob
+│   ├── call_handler.py  # VoIP qo'ng'iroqlarni tutuvchi handler
+│   └── commands.py      # Shaxsiy boshqaruv komandalari
+├── scheduler/
+│   ├── __init__.py
+│   └── birthday.py      # APScheduler orqali tug'ilgan kun tabriklari
+├── data/                # Baza va sessiya fayllari (gitignore'da)
+├── .env.example         # Sozlamalar namunasi
+├── .gitignore           # Maxfiy fayllarni cheklash
+└── requirements.txt     # Loyiha dependensiyalari (pip)
 ```
 
 ---
