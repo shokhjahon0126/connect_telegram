@@ -4,9 +4,9 @@ import logging
 from telethon import TelegramClient, events
 from telethon.tl.types import User
 
-from connect_telegram.config import config
-from connect_telegram.database import Database
-from connect_telegram.templates import get_auto_reply_message
+from config import config
+from database import Database
+from templates import get_auto_reply_message
 
 logger = logging.getLogger("connect_telegram.handlers.auto_reply")
 

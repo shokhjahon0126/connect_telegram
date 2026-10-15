@@ -5,7 +5,7 @@ from typing import Optional
 from telethon import TelegramClient
 from telethon.tl.types import User
 
-from connect_telegram.config import config
+from config import config
 
 logger = logging.getLogger("connect_telegram.client")
 

@@ -7,9 +7,9 @@ import pytz
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from telethon import TelegramClient, functions
 
-from connect_telegram.config import config
-from connect_telegram.database import Database
-from connect_telegram.templates import get_birthday_message
+from config import config
+from database import Database
+from templates import get_birthday_message
 
 logger = logging.getLogger("connect_telegram.scheduler.birthday")
 

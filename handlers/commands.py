@@ -5,9 +5,9 @@ from typing import Optional
 from telethon import TelegramClient, events, functions
 from telethon.tl.types import User
 
-from connect_telegram.config import config
-from connect_telegram.database import Database
-from connect_telegram.templates import get_help_message
+from config import config
+from database import Database
+from templates import get_help_message
 
 logger = logging.getLogger("connect_telegram.handlers.commands")
 
@@ -179,7 +179,7 @@ def register_command_handlers(client: TelegramClient, db: Database) -> None:
             return
 
         if command in ("check_birthdays", "sinash_tugulgan_kun"):
-            from connect_telegram.scheduler.birthday import check_and_send_birthdays
+            from scheduler.birthday import check_and_send_birthdays
             await event.edit("🔄 Tug'ilgan kunlarni tekshirish boshlanmoqda...")
             sent_count = await check_and_send_birthdays(client, db)
             await event.edit(f"🎉 Tekshirish tugadi! Bugun yuborilgan tabriklar soni: **{sent_count}** ta.")

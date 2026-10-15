@@ -3,13 +3,10 @@ import asyncio
 import sys
 from pathlib import Path
 
-# Add src to sys.path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
-
 import qrcode
 from telethon import errors
-from connect_telegram.config import config
-from connect_telegram.client import get_telegram_client
+from config import config
+from client import get_telegram_client
 
 
 async def qr_login_main():

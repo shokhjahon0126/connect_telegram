@@ -6,15 +6,15 @@ import signal
 import sys
 from telethon import TelegramClient
 
-from connect_telegram.config import config
-from connect_telegram.database import Database
-from connect_telegram.client import get_telegram_client
-from connect_telegram.handlers import (
+from config import config
+from database import Database
+from client import get_telegram_client
+from handlers import (
     register_auto_reply_handler,
     register_call_handler,
     register_command_handlers,
 )
-from connect_telegram.scheduler import setup_birthday_scheduler
+from scheduler import setup_birthday_scheduler
 
 BANNER = r"""
 ============================================================
